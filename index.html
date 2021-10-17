@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,13 +19,16 @@
         <div class="stat">Population: 987,654,321 </div>
         <div class="stat">CO2 Level: 341 ppm</div>
     </div>
-
+    <div class="container">
     <div class="game">
-        <div class="map">
+      <div class="row">
+        <div class="col-lg map">
             Insert big map here.
         </div>
+      </div>
         <div class="panels">
-            
+          <div class="row">
+            <div class="col-lg">
             <div class="panel">
                 <img src="images/coal.jpg">
                 <div class="energy">
@@ -41,8 +45,9 @@
                 </div>
 
             </div>
-
-            <div class="panel">
+          </div>
+          <div class="col-lg">
+            <div class="col-sm panel">
                 <img src="images/nuclear.jpg">
                 <div class="energy">
                     Nuclear Power Plant
@@ -58,7 +63,10 @@
                     <button>R&D</button>
                 </div>
             </div>
-
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-lg">
             <div class="panel">
                 <img src="images/wind.jpg">
                 <div class="energy">
@@ -76,7 +84,8 @@
                     <button>R&D</button>
                 </div>
             </div>
-
+          </div>
+            <div class="col-lg">
             <div class="panel">
                 <img src="images/gas.jpg">
                 <div class="energy">
@@ -93,7 +102,10 @@
                     <button>R&D</button>
                 </div>
             </div>
-
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
             <div class="panel">
                 <img src="images/geothermal.jpg">
                 <div class="energy">
@@ -109,7 +121,8 @@
                     <button>R&D</button>
                 </div>
             </div>
-
+          </div>
+          <div class="col-6">
             <div class="panel">
                 <img src="images/solar.jpg">
                 <div class="energy">
@@ -126,14 +139,15 @@
                     <button>R&D</button>
                 </div>
             </div>
+          </div>
 
-
+          </div>
         </div>
 
 
 
     </div>
-    
+  </div>
     <button class="progress">
         Proceed to the next year, 1985
     </button>

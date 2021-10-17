@@ -36,7 +36,6 @@ h1 {
 }
 
 .map {
-    width: 800px;
     height: auto;
     border: black solid 2px;
     border-radius: 16px;
@@ -86,7 +85,7 @@ button:active {
     align-items: center;
     text-align: center;
     flex: 1 1 0;
-    
+
 }
 
 .energy {
