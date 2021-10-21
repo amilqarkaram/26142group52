@@ -85,7 +85,7 @@ button:active {
     align-items: center;
     text-align: center;
     flex: 1 1 0;
-
+    margin-top: 20px;
 }
 
 .energy {
@@ -111,4 +111,5 @@ img {
     font-size: 36px;
     justify-content: center;
     margin-top: 24px;
+    flex: 1;
 }
