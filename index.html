@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,66 +19,67 @@
         <div class="stat">Population: 987,654,321 </div>
         <div class="stat">CO2 Level: 341 ppm</div>
     </div>
-
+    <div class="container">
     <div class="game">
-        <div class="map">
-            Insert big map here.
+      <div class="row">
+        <div class="col-sm-12 text-center">
+            <img src="images/coal.jpg" class="map center">
         </div>
-        <div class="panels">
-            
-            <div class="panel">
-                <img src="images/coal.jpg">
-                <div class="energy">
-                    Coal Plant
-                </div>
-                <div class="cost">
-                    $108 per MWh
-                </div>
-                <div class="effects">
-                    Increase in CO2
-                </div>
-                <div><button>Select</button>
-                    <button>R&D</button>
-                </div>
+        <div class="col-sm panels">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4  panel">
+                  <img src="images/coal.jpg">
+                  <div class="energy">
+                      Coal Plant
+                  </div>
+                  <div class="cost">
+                      $108 per MWh
+                  </div>
+                  <div class="effects">
+                      Increase in CO2
+                  </div>
+                  <div><button>Select</button>
+                      <button>R&D</button>
+                  </div>
 
-            </div>
+              </div>
+              <div class="col-lg-4 panel">
+                  <img src="images/nuclear.jpg">
+                  <div class="energy">
+                      Nuclear Power Plant
+                  </div>
+                  <div class="cost">
+                      $117 per MWh
+                  </div>
+                  <div class="effects">
+                      Ten years to build
+                  </div>
+                  <div>
+                      <button>Select</button>
+                      <button>R&D</button>
+                  </div>
+              </div>
+              <div class="col-lg-4 panel">
+                  <img src="images/wind.jpg">
+                  <div class="energy">
+                      Wind Turbines
+                  </div>
+                  <div class="cost">
+                      $55 per MWh
+                  </div>
+                  <div class="effects">
+                      No CO2
+                  </div>
+                  <div>
 
-            <div class="panel">
-                <img src="images/nuclear.jpg">
-                <div class="energy">
-                    Nuclear Power Plant
-                </div>
-                <div class="cost">
-                    $117 per MWh
-                </div>
-                <div class="effects">
-                    Ten years to build
-                </div>
-                <div>
-                    <button>Select</button>
-                    <button>R&D</button>
-                </div>
-            </div>
-
-            <div class="panel">
-                <img src="images/wind.jpg">
-                <div class="energy">
-                    Wind Turbines
-                </div>
-                <div class="cost">
-                    $55 per MWh
-                </div>
-                <div class="effects">
-                    No CO2
-                </div>
-                <div>
-
-                    <button>Select</button>
-                    <button>R&D</button>
-                </div>
-            </div>
-
-            <div class="panel">
+                      <button>Select</button>
+                      <button>R&D</button>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 panel">
                 <img src="images/gas.jpg">
                 <div class="energy">
                     Gas
@@ -93,8 +95,7 @@
                     <button>R&D</button>
                 </div>
             </div>
-
-            <div class="panel">
+            <div class="col-lg-4 panel">
                 <img src="images/geothermal.jpg">
                 <div class="energy">
                     Geothermal
@@ -109,8 +110,7 @@
                     <button>R&D</button>
                 </div>
             </div>
-
-            <div class="panel">
+            <div class="col-lg-4 panel">
                 <img src="images/solar.jpg">
                 <div class="energy">
                     Solar
@@ -126,14 +126,15 @@
                     <button>R&D</button>
                 </div>
             </div>
-
-
+          </div>
+          </div>
         </div>
+      </div>
 
 
 
     </div>
-    
+  </div>
     <button class="progress">
         Proceed to the next year, 1985
     </button>
