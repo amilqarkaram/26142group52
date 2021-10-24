@@ -25,17 +25,20 @@ let seconds = 0;
 let el = document.getElementById('seconds-counter');
 let cancel = setInterval(incrementSeconds, 5000);
 
-
-
-
+let peopleIncrease = 1;
+let reincrease = 1;
 
 function updateAllStats() {
     nextYear.firstElementChild.textContent = statData[0] + 1;
-    getmoney.firstElementChild.textContent = statData[2] * (statData[4]/100);
+    reincrease += 1;
+    peopleIncrease += reincrease;
+    statData[2] += peopleIncrease;
+    statData[5] = statData[2] * 0.893;
+    statData[5] = statData[5].toFixed(2);
 
     i = 0;
     stats.forEach(stat => {
-        stat.firstElementChild.textContent = statData[i];
+        stat.firstElementChild.textContent = statData[i++];
     });
     
     i = 0;
@@ -45,7 +48,7 @@ function updateAllStats() {
 
     i = 0;
     costs.forEach(cost => {
-        cost.firstElementChild.textContent = costData[i];
+        cost.firstElementChild.textContent = costData[i++];
     });  
 
     i = 0;
@@ -89,7 +92,16 @@ function updateCostData() {
 
 function updateBudget() {
     statData[1] = statData[1] + statData[2] * (statData[4]/100);
-    updateAllStats();
+    statData[1] = Math.trunc(statData[1]);
+    
+    i = 0;
+    stats.forEach(stat => {
+        stat.firstElementChild.textContent = statData[i++];
+    });
+
+    getmoney.firstElementChild.textContent = statData[2] * (statData[4]/100);
+    getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent);
+
 }
 
 function incrementSeconds() {
@@ -132,4 +144,5 @@ function buildPlant(e) {
 }
 
 incrementSeconds();
+updateBudget();
 updateAllStats();

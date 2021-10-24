@@ -45,21 +45,14 @@ h2 {
 }
 
 .map {
-    width: 400px;
+    width: 600px;
     height: auto;
     border: black solid 2px;
     border-radius: 16px;
     padding: 0;
     text-align: center;
     flex: 1;
-}
-
-#map {
-    margin: 0;
-    border-radius: 16px;
-    width: 800px;
-    height: fit-content;
-    flex: 1 1 0;
+    margin-bottom: 24px;
 }
 
 button {
@@ -102,7 +95,8 @@ button:active {
     align-items: center;
     text-align: center;
     flex: 1 1 0;
-    margin-top: 20px;
+    margin-top: 6px;
+    margin-right: 6px;
 }
 
 .energy {
@@ -120,13 +114,18 @@ button:active {
 
 .panel img {
     border-radius: 8px;
-    max-width: 192px;
+    max-height: 192px;
 }
 
-
-.progress {
-    font-size: 36px;
+#progress {
+    font-size: 16px;
     justify-content: center;
-    margin-top: 24px;
+    align-items: center;
+    width: 160px;
+    border-radius: 16px;
     flex: 1;
+}
+
+#moneyclick {
+    width: 100%;
 }
