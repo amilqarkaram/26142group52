@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,25 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <script src="script.js" defer></script>
-    <title>Save the Earth Clicker</title>
+    <title>Save the U.S. Clicker</title>
 </head>
 
 <body id="body">
-    <h1>Save the Earth Clicker</h1>
-
+    <h1>Save the U.S. Clicker</h1>
     <h2>Stats</h2>
     <div class="stats">
-        <div class="stat">Year: <span></span></div>
+        <div class="stat">Date: <span></span><div id='seconds-counter'> </div></div>
         <div class="stat">Budget: $<span></span></div>
-        <div class="stat">Population: <span></span></div>
+        <div class="stat">Population: <span></span> people</div>
         <div class="stat">CO2 Level: <span></span>ppm</div>
         <div class="stat">Approval: <span></span>%</div>
         <div class="stat">Necessary Energy: <span></span></div>
     </div>
 
+    <button id="moneyclick">
+        Campaign to Raise Money: $<span id="getmoney"></span>
+    </button>
+
     <div class="game">
         <div class="map">
-            Insert Map Here!
+            <!--Insert Map Here!-->
+            <img src="images/florida.png">
         </div>
         <div class="panels">
 
@@ -37,50 +41,11 @@
                 <div>
                     Power generated: <span class="power"></span>
                 </div>
-                <div>
-                    $<span class="cost"></span> per MWh
+                <div class="cost">
+                    $<span></span> per MWh
                 </div>
                 <div class="effect">
                     Increase in CO2
-                </div>
-                <div><button class="build">Build</button>
-                    <button>R&D</button>
-                </div>
-            </div>
-
-            <div class="panel" id="nuclear">
-                <img src="images/nuclear.jpg">
-                <div class="energy">
-                    Nuclear Power Plant
-                </div>
-                <div>
-                    Power generated: <span class="power"></span>
-                </div>
-                <div>
-                    $<span class="cost"></span> per MWh
-                </div>
-                <div class="effect">
-                    Ten years to build
-                </div>
-                <div>
-                    <button class="build">Build</button>
-                    <button>R&D</button>
-                </div>
-            </div>
-
-            <div class="panel" id="wind">
-                <img src="images/wind.jpg">
-                <div class="energy">
-                    Wind Turbines
-                </div>
-                <div>
-                    Power generated: <span class="power"></span>
-                </div>
-                <div>
-                    $<span class="cost"></span> per MWh
-                </div>
-                <div class="effect">
-                    No CO2
                 </div>
                 <div>
                     <button class="build">Build</button>
@@ -96,11 +61,31 @@
                 <div>
                     Power generated: <span class="power"></span>
                 </div>
-                <div>
-                    $<span class="cost"></span> per MWh
+                <div class="cost">
+                    $<span></span> per MWh
                 </div>
                 <div class="effect">
                     Increase in CO2
+                </div>
+                <div>
+                    <button class="build">Build</button>
+                    <button>R&D</button>
+                </div>
+            </div>
+
+            <div class="panel" id="nuclear">
+                <img src="images/nuclear.jpg">
+                <div class="energy">
+                    Nuclear Power Plant
+                </div>
+                <div>
+                    Power generated: <span class="power"></span>
+                </div>
+                <div class="cost">
+                    $<span></span> per MWh
+                </div>
+                <div class="effect">
+                    Ten years to build
                 </div>
                 <div>
                     <button class="build">Build</button>
@@ -116,8 +101,8 @@
                 <div>
                     Power generated: <span class="power"></span>
                 </div>
-                <div>
-                    $<span class="cost"></span> per MWh
+                <div class="cost">
+                    $<span></span> per MWh
                 </div>
                 <div class="effect">
                     ?
@@ -136,11 +121,31 @@
                 <div>
                     Power generated: <span class="power"></span>
                 </div>
-                <div>
-                    $<span class="cost"></span> per MWh
+                <div class="cost">
+                    $<span></span> per MWh
                 </div>
                 <div class="effect">
                     ?
+                </div>
+                <div>
+                    <button class="build">Build</button>
+                    <button>R&D</button>
+                </div>
+            </div>
+
+            <div class="panel" id="wind">
+                <img src="images/wind.jpg">
+                <div class="energy">
+                    Wind Turbines
+                </div>
+                <div>
+                    Power generated: <span class="power"></span>
+                </div>
+                <div class="cost">
+                    $<span></span> per MWh
+                </div>
+                <div class="effect">
+                    No CO2
                 </div>
                 <div>
                     <button class="build">Build</button>
