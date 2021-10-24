@@ -45,16 +45,18 @@ h2 {
 }
 
 .map {
+
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 800px;
+    width: 600px;
     height: auto;
     border: black solid 2px;
     border-radius: 16px;
     padding: 0;
     text-align: center;
     flex: 1;
+    margin-bottom: 24px;
     background-color:lightgoldenrodyellow;
 }
 
@@ -98,7 +100,8 @@ h2 {
     align-items: center;
     text-align: center;
     flex: 1 1 0;
-    margin-top: 20px;
+    margin-top: 6px;
+    margin-right: 6px;
 }
 
 .energy {
@@ -116,5 +119,5 @@ h2 {
 
 .panel img {
     border-radius: 8px;
-    max-width: 192px;
+    max-height: 192px;
 }
