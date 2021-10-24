@@ -3,7 +3,7 @@ body {
     padding: 32px 128px;
     display: flex;
     flex-direction: column;
-    background-color: lightgoldenrodyellow;
+    background-color:darkseagreen;
 }
 
 h1 {
@@ -45,6 +45,10 @@ h2 {
 }
 
 .map {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 600px;
     height: auto;
     border: black solid 2px;
@@ -53,25 +57,26 @@ h2 {
     text-align: center;
     flex: 1;
     margin-bottom: 24px;
+    background-color:lightgoldenrodyellow;
 }
 
-button {
+#moneyclick {
     background-color: rgb(29, 156, 97);
     color: black;
     font-weight: 900;
     font-size: 24px;
     border: black solid 2px;
     border-radius: 16px;
-    flex: 0 0 auto;
+    margin: auto;
 }
 
-button:hover {
+#moneyclick:hover {
     background-color: black;
     color: rgb(29, 156, 97);
     cursor: pointer;
 }
 
-button:active {
+#moneyclick:active {
     color: lightgoldenrodyellow;
 }
 
@@ -91,7 +96,7 @@ button:active {
     border-radius: 8px;
     gap: 8px;
     background-color: lightgoldenrodyellow;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     flex: 1 1 0;
@@ -115,17 +120,4 @@ button:active {
 .panel img {
     border-radius: 8px;
     max-height: 192px;
-}
-
-#progress {
-    font-size: 16px;
-    justify-content: center;
-    align-items: center;
-    width: 160px;
-    border-radius: 16px;
-    flex: 1;
-}
-
-#moneyclick {
-    width: 100%;
 }
