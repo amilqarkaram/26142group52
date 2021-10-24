@@ -1,11 +1,13 @@
 const stats = document.querySelectorAll('.stat');
-const costs = document.querySelectorAll('.cost');
 const powers = document.querySelectorAll('.power');
+const costs = document.querySelectorAll('.cost');
+const inputs = document.querySelectorAll('input');
+const outputs = document.querySelectorAll('output');
 const builds = document.querySelectorAll('.build');
 const nextYear = document.querySelector('#progress');
 const getmoney = document.querySelector('#moneyclick');
 
-//builds.forEach(build => addEventListener('click', buildPlant));
+builds.forEach(build => addEventListener('click', buildPlant));
 nextYear.addEventListener('click', updateAllStats);
 getmoney.addEventListener('click', updateBudget);
 
@@ -13,7 +15,7 @@ getmoney.addEventListener('click', updateBudget);
 // statData: year, budget, population, co2, approval, total required energy
 let statData = [2009, 0, 300, 320, 95, 222];
 let costData = new Array(6);
-let powerData = [531, 412, 423, 442, 304, 312];
+let powerData = [29, 44, 10, 2, 5, 10]; // TEMPORARY VALUES 
 
 let r = 250;
 let g = 250;
@@ -23,20 +25,40 @@ let seconds = 0;
 let el = document.getElementById('seconds-counter');
 let cancel = setInterval(incrementSeconds, 5000);
 
+
+
+
+
 function updateAllStats() {
     nextYear.firstElementChild.textContent = statData[0] + 1;
     getmoney.firstElementChild.textContent = statData[2] * (statData[4]/100);
 
-    let i = 0;
-    stats.forEach(stat => updateStat(stat.firstElementChild, i++));
+    i = 0;
+    stats.forEach(stat => {
+        stat.firstElementChild.textContent = statData[i];
+    });
     
-    i=0;
-    costs.forEach(cost => updateCost(cost.firstElementChild, i++));  
+    i = 0;
+    powers.forEach(power => {
+        power.textContent = powerData[i++];
+    });
+
+    i = 0;
+    costs.forEach(cost => {
+        cost.firstElementChild.textContent = costData[i];
+    });  
+
+    i = 0;
+    inputs.forEach(input => {
+        input.setAttribute('value', powerData[i++]);
+    });
+
+    i = 0;
+    outputs.forEach(output => {
+        output.textContent = powerData[i++];
+    });
 }
 
-function updateStat(stat, i) {
-    stat.textContent = statData[i];
-}
 
 function updateCostData() {
      if (statData[0] == 2010) {
@@ -64,12 +86,6 @@ function updateCostData() {
     }
 }
 
-function updateCost(cost, i) {
-    
-    console.log(costData[i]);
-    
-    cost.textContent = costData[i];
-}
 
 function updateBudget() {
     statData[1] = statData[1] + statData[2] * (statData[4]/100);
@@ -109,6 +125,10 @@ function incrementSeconds() {
     el.innerText = month;
     
     updateAllStats();
+}
+
+function buildPlant(e) {
+    console.log(e);
 }
 
 incrementSeconds();
