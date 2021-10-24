@@ -48,7 +48,8 @@
                     Increase in CO2
                 </div>
                 <div>
-                    <input type="range" name="adjustEnergy" min="0" max="100" oninput="this.nextElementSibling.value= this.value"/>
+                    <!--Citation for updating input and output values: https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value-->
+                    <input type="range" name="adjustEnergy" min="0" max="100" oninput="this.nextElementSibling.value= this.value"/> 
                     <output for="adjustEnergy"></output>
                     <button class="build">Build</button>
                     <button>R&D</button>
