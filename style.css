@@ -3,7 +3,7 @@ body {
     padding: 32px 128px;
     display: flex;
     flex-direction: column;
-    background-color: lightgoldenrodyellow;
+    background-color:darkseagreen;
 }
 
 h1 {
@@ -45,40 +45,36 @@ h2 {
 }
 
 .map {
-    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
     height: auto;
     border: black solid 2px;
     border-radius: 16px;
     padding: 0;
     text-align: center;
     flex: 1;
+    background-color:lightgoldenrodyellow;
 }
 
-#map {
-    margin: 0;
-    border-radius: 16px;
-    width: 800px;
-    height: fit-content;
-    flex: 1 1 0;
-}
-
-button {
+#moneyclick {
     background-color: rgb(29, 156, 97);
     color: black;
     font-weight: 900;
     font-size: 24px;
     border: black solid 2px;
     border-radius: 16px;
-    flex: 0 0 auto;
+    margin: auto;
 }
 
-button:hover {
+#moneyclick:hover {
     background-color: black;
     color: rgb(29, 156, 97);
     cursor: pointer;
 }
 
-button:active {
+#moneyclick:active {
     color: lightgoldenrodyellow;
 }
 
@@ -98,7 +94,7 @@ button:active {
     border-radius: 8px;
     gap: 8px;
     background-color: lightgoldenrodyellow;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     flex: 1 1 0;
@@ -121,12 +117,4 @@ button:active {
 .panel img {
     border-radius: 8px;
     max-width: 192px;
-}
-
-
-.progress {
-    font-size: 36px;
-    justify-content: center;
-    margin-top: 24px;
-    flex: 1;
 }

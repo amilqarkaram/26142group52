@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,167 +15,161 @@
 <body id="body">
     <h1>Save the U.S. Clicker</h1>
     <h2>Stats</h2>
+
     <div class="stats">
-        <div class="stat">Date: <span></span><div id='seconds-counter'> </div></div>
+        <div class="stat">Date: <span id='seconds-counter'> </span> <span></span> 
+            
+        </div>
         <div class="stat">Budget: $<span></span></div>
         <div class="stat">Population: <span></span> people</div>
         <div class="stat">CO2 Level: <span></span>ppm</div>
         <div class="stat">Approval: <span></span>%</div>
-        <div class="stat">Necessary Energy: <span></span></div>
+        <div class="stat">Necessary Energy: <span></span> MWh</div>
     </div>
+
+    <!--Icons: https://www.flaticon.com/authors/surang-->
     <div class="container">
-      <button id="moneyclick">
-          Campaign to Raise Money: $<span id="getmoney"></span>
-      </button>
-    <div class="game">
-      <div class="row">
-        <div class="col-sm-12 text-center">
-            <img src="images/florida.png" class="map center">
-        </div>
-        <div class="col-sm panels">
-          <div class="container">
+        <button id="moneyclick">
+            Campaign to Raise Money: $<span id="getmoney"></span>
+        </button>
+        <div class="game">
             <div class="row">
-              <div class="col-lg-4 panel" id="coal">
-                  <img src="images/coal.jpg">
-                  <div class="energy">
-                      Coal Plant
-                  </div>
-                  <div>
-                      Power generated: <span class="power"></span>
-                  </div>
-                  <div class="cost">
-                      $<span></span> per MWh
-                  </div>
-                  <div class="effect">
-                      Increase in CO2
-                  </div>
-                  <div>
-                      <!--Citation for updating input and output values: https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value-->
-                      <input type="range" name="adjustEnergy" min="0" max="100" oninput="this.nextElementSibling.value= this.value"/>
-                      <output for="adjustEnergy"></output>
-                      <button class="build">Build</button>
-                      <button>R&D</button>
-                  </div>
-              </div>
-              <div class="col-lg-4 panel" id="gas">
-                  <img src="images/gas.jpg">
-                  <div class="energy">
-                      Gas
-                  </div>
-                  <div>
-                      Power generated: <span class="power"></span>
-                  </div>
-                  <div class="cost">
-                      $<span></span> per MWh
-                  </div>
-                  <div class="effect">
-                      Increase in CO2
-                  </div>
-                  <div>
-                      <input type="range" name="adjustEnergy" min="0" max="100" oninput="this.nextElementSibling.value= this.value"/>
-                      <output for="adjustEnergy"></output>
-                      <button class="build">Build</button>
-                      <button>R&D</button>
-                  </div>
-              </div>
-              <div class="col-lg-4 panel" id="nuclear">
-                  <img src="images/nuclear.jpg">
-                  <div class="energy">
-                      Nuclear Power Plant
-                  </div>
-                  <div>
-                      Power generated: <span class="power"></span>
-                  </div>
-                  <div class="cost">
-                      $<span></span> per MWh
-                  </div>
-                  <div class="effect">
-                      Ten years to build
-                  </div>
-                  <div>
-                      <input type="range" name="adjustEnergy" min="0" max="100" oninput="this.nextElementSibling.value= this.value"/>
-                      <output for="adjustEnergy"></output>
-                      <button class="build">Build</button>
-                      <button>R&D</button>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 panel" id="geothermal">
-                <img src="images/geothermal.jpg">
-                <div class="energy">
-                    Geothermal
+                <div class="col-sm-12 text-center">
+                    <img src="images/florida.png" class="map center">
                 </div>
-                <div>
-                    Power generated: <span class="power"></span>
-                </div>
-                <div class="cost">
-                    $<span></span> per MWh
-                </div>
-                <div class="effect">
-                    ?
-                </div>
-                <div>
-                    <input type="range" name="adjustEnergy" min="0" max="100" oninput="this.nextElementSibling.value= this.value"/>
-                    <output for="adjustEnergy"></output>
-                    <button class="build">Build</button>
-                    <button>R&D</button>
-                </div>
-            </div>
-            <div class="col-lg-4 panel" id="solar">
-                <img src="images/solar.jpg">
-                <div class="energy">
-                    Solar
-                </div>
-                <div>
-                    Power generated: <span class="power"></span>
-                </div>
-                <div class="cost">
-                    $<span></span> per MWh
-                </div>
-                <div class="effect">
-                    ?
-                </div>
-                <div>
-                    <input type="range" name="adjustEnergy" min="0" max="100" oninput="this.nextElementSibling.value= this.value"/>
-                    <output for="adjustEnergy"></output>
-                    <button class="build">Build</button>
-                    <button>R&D</button>
-                </div>
-            </div>
+                <div class="col-sm panels">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 panel" id="coal">
+                                <img src="images/coal.png">
+                                <div class="energy">
+                                    Coal Plant
+                                </div>
+                                <div>
+                                    Power generated: <span class="power"></span> MWh
+                                </div>
+                                <div class="cost">
+                                    $<span></span> per MWh
+                                </div>
+                                <div class="effect">
+                                    Increase in CO2
+                                </div>
+                                <div>
+                                    <!--Citation for updating input and output values: https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value-->
+                                    <input type="range" name="adjustEnergy" min="0" max="100"
+                                        oninput="this.nextElementSibling.value= this.value" />
+                                    <output for="adjustEnergy"></output>%
+                                </div>
+                            </div>
+                            <div class="col-lg-4 panel" id="gas">
+                                <img src="images/natural-gas.png">
+                                <div class="energy">
+                                    Gas
+                                </div>
+                                <div>
+                                    Power generated: <span class="power"></span> MWh
+                                </div>
+                                <div class="cost">
+                                    $<span></span> per MWh
+                                </div>
+                                <div class="effect">
+                                    Increase in CO2
+                                </div>
+                                <div>
+                                    <input type="range" name="adjustEnergy" min="0" max="100"
+                                        oninput="this.nextElementSibling.value= this.value" />
+                                    <output for="adjustEnergy"></output>%
+                                </div>
+                            </div>
+                            <div class="col-lg-4 panel" id="nuclear">
+                                <img src="images/nuclear.png">
+                                <div class="energy">
+                                    Nuclear Power Plant
+                                </div>
+                                <div>
+                                    Power generated: <span class="power"></span> MWh
+                                </div>
+                                <div class="cost">
+                                    $<span></span> per MWh
+                                </div>
+                                <div class="effect">
+                                    Ten years to build
+                                </div>
+                                <div>
+                                    <input type="range" name="adjustEnergy" min="0" max="100"
+                                        oninput="this.nextElementSibling.value= this.value" />
+                                    <output for="adjustEnergy"></output>%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 panel" id="geothermal">
+                                <img src="images/geothermal.png">
+                                <div class="energy">
+                                    Geothermal
+                                </div>
+                                <div>
+                                    Power generated: <span class="power"></span> MWh
+                                </div>
+                                <div class="cost">
+                                    $<span></span> per MWh
+                                </div>
+                                <div class="effect">
+                                    
+                                </div>
+                                <div>
+                                    <input type="range" name="adjustEnergy" min="0" max="100"
+                                        oninput="this.nextElementSibling.value= this.value" />
+                                    <output for="adjustEnergy"></output>%
+                                </div>
+                            </div>
+                            <div class="col-lg-4 panel" id="solar">
+                                <img src="images/solar.png">
+                                <div class="energy">
+                                    Solar
+                                </div>
+                                <div>
+                                    Power generated: <span class="power"></span> MWh
+                                </div>
+                                <div class="cost">
+                                    $<span></span> per MWh
+                                </div>
+                                <div class="effect">
+                                    
+                                </div>
+                                <div>
+                                    <input type="range" name="adjustEnergy" min="0" max="100"
+                                        oninput="this.nextElementSibling.value= this.value" />
+                                    <output for="adjustEnergy"></output>%
+                                </div>
+                            </div>
 
-            <div class="col-lg-4 panel" id="wind">
-                <img src="images/wind.jpg">
-                <div class="energy">
-                    Wind Turbines
-                </div>
-                <div>
-                    Power generated: <span class="power"></span>
-                </div>
-                <div class="cost">
-                    $<span></span> per MWh
-                </div>
-                <div class="effect">
-                    No CO2
-                </div>
-                <div>
-                    <input type="range" name="adjustEnergy" id="we" min="0" max="100" oninput="this.nextElementSibling.value= this.value"/>
-                    <output for="adjustEnergy"></output>
-                    <button class="build">Build</button>
-                    <button>R&D</button>
+                            <div class="col-lg-4 panel" id="wind">
+                                <img src="images/wind.png">
+                                <div class="energy">
+                                    Wind Turbines
+                                </div>
+                                <div>
+                                    Power generated: <span class="power"></span> MWh
+                                </div>
+                                <div class="cost">
+                                    $<span></span> per MWh
+                                </div>
+                                <div class="effect">
+                                    No CO2
+                                </div>
+                                <div>
+                                    <input type="range" name="adjustEnergy" id="we" min="0" max="100"
+                                        oninput="this.nextElementSibling.value= this.value" />
+                                    <output for="adjustEnergy"></output>%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
-
-    <button id="progress">
-        Proceed to the next year, <span id="nextyear"></span>
-    </button>
-
 
 
 </body>
