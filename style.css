@@ -45,13 +45,7 @@ h2 {
 }
 
 .map {
-<<<<<<< HEAD
-=======
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 800px;
->>>>>>> 481df0a3d23a67f2a5df7121c5d681b8c6961583
+    width: 400px;
     height: auto;
     border: black solid 2px;
     border-radius: 16px;
