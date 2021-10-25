@@ -39,11 +39,8 @@ inputs.forEach(input => {
 });
 
 function updateAllStats() {
-    reincrease += 1;
-    peopleIncrease += reincrease;
-    statData[2] += peopleIncrease;
-    statData[5] = statData[2] * 0.893;
-    statData[5] = statData[5].toFixed(2);
+    statData[2] += exponentialIncrease(reincrease, peopleIncrease);
+    statData[5] = requiredPowerCalc(statData[2]);
 
     updateBudget();
 
@@ -98,8 +95,7 @@ function updateCostData() {
 
 
 function updateBudget() {
-    statData[1] = statData[1] + moneyCalc(statData[2] , (statData[4]/100));
-    statData[1] = Math.trunc(statData[1]);
+    statData[1] += moneyCalc(statData[2] , statData[4]);
 
     i = 0;
     stats.forEach(stat => {
@@ -114,8 +110,9 @@ function updateBudget() {
         }
     });
 
-    getmoney.firstElementChild.textContent = (statData[2] * (statData[4] / 100));
-    getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent).toLocaleString("en-US");
+    //getmoney.firstElementChild.textContent = (statData[2] * (statData[4] / 100));
+    getmoney.firstElementChild.textContent = moneyCalc(statData[2],statData[4]).toLocaleString("en-US");
+    //getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent).toLocaleString("en-US");
 }
 
 function updateButtonOne() {
