@@ -49,13 +49,13 @@ function updateAllStats() {
 
     i = 0;
     powers.forEach(power => {
-        power.textContent = Math.round(powerData[i++] * (1 / 100) * statData[5]).toLocaleString("en-US");
+        power.textContent = powerCalc(powerData[i++],statData[5]).toLocaleString("en-US");
     });
 
     i = 0;
     costs.forEach(cost => {
         cost.firstElementChild.textContent = costData[i++];
-    });  
+    });
 
     i = 0;
     inputs.forEach(input => {
@@ -98,9 +98,9 @@ function updateCostData() {
 
 
 function updateBudget() {
-    statData[1] = statData[1] + statData[2] * (statData[4]/100);
+    statData[1] = statData[1] + moneyCalc(statData[2] , (statData[4]/100));
     statData[1] = Math.trunc(statData[1]);
-    
+
     i = 0;
     stats.forEach(stat => {
         if (i == 0) {
