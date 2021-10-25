@@ -2,7 +2,7 @@ const stats = document.querySelectorAll('.stat');
 const powers = document.querySelectorAll('.power');
 const costs = document.querySelectorAll('.cost');
 const inputs = document.querySelectorAll('input');
-const outputs = document.querySelectorAll('output');
+//const outputs = document.querySelectorAll('output');
 const getmoney = document.querySelector('#moneyclick');
 const button1owned = document.querySelector('.getbutton1');
 const button2owned = document.querySelector('.getbutton2');
@@ -21,17 +21,21 @@ button6owned.addEventListener('click', updateButtonSix);
 
 // These are all currently placeholder values
 // statData: year, budget, population, co2, approval, total required energy
-let statData = [2009, 0, 30000, 320, 95, 30000];
+let statData = [2009, 0, 300, 320, 90, 30000];
 let costData = new Array(6);
-let powerData = [44.50, 24.10, 19.40, 0.37, 0.03, 2.30];
+let powerData = [0,0,0,0,0,0];
 let plantData = [0,0,0,0,0,0];
 
 let seconds = 0;
 let el = document.getElementById('seconds-counter');
-let cancel = setInterval(incrementSeconds, 10000);
+let cancel = setInterval(incrementSeconds, 5000);
 
-let peopleIncrease = 1;
-let reincrease = 1;
+let obj = {
+    peopleIncrease: 1,
+    reincrease: 1
+}
+
+let sumEnergy = 0;
 
 let i = 0;
 inputs.forEach(input => {
@@ -39,31 +43,41 @@ inputs.forEach(input => {
 });
 
 function updateAllStats() {
-    statData[2] += exponentialIncrease(reincrease, peopleIncrease);
+    sumEnergy = 0;
+    i = 0;
+    costs.forEach(cost => {
+        sumEnergy += powerData[i++];
+    });
+    sumEnergy *= seconds;
+
+    statData[1] -= sumEnergy;
+    statData[2] += exponentialIncrease(obj);
+    statData[3] += plantData[0] + plantData[1];
+    statData[4] -= statData[3] / 320 - 1;
     statData[5] = requiredPowerCalc(statData[2]);
 
     updateBudget();
 
     i = 0;
     powers.forEach(power => {
-        power.textContent = powerCalc(powerData[i++],statData[5]).toLocaleString("en-US");
+        powerData[i] = plantData[i] * costData[i++];
+    });
+
+    i = 0;
+    powers.forEach(power => {
+        power.textContent = (powerData[i++]).toLocaleString("en-US");
     });
 
     i = 0;
     costs.forEach(cost => {
         cost.firstElementChild.textContent = costData[i++];
     });
-
-    i = 0;
-    inputs.forEach(input => {
-        powerData[i++] = input['value'];
-    });
-
+    /*
     i = 0;
     outputs.forEach(output => {
         output.textContent = powerData[i++];
     });
-
+    */
 }
 
 
