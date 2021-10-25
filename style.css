@@ -45,7 +45,6 @@ h2 {
 }
 
 .map {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,10 +56,12 @@ h2 {
     text-align: center;
     flex: 1;
     margin-bottom: 24px;
-    background-color:lightgoldenrodyellow;
+    background-color: lightgoldenrodyellow;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#moneyclick {
+button {
     background-color: rgb(29, 156, 97);
     color: black;
     font-weight: 900;
@@ -70,14 +71,18 @@ h2 {
     margin: auto;
 }
 
-#moneyclick:hover {
+button:hover {
     background-color: black;
     color: rgb(29, 156, 97);
     cursor: pointer;
 }
 
-#moneyclick:active {
+button:active {
     color: lightgoldenrodyellow;
+}
+
+#moneyclick {
+    width: 100%;
 }
 
 .panels {

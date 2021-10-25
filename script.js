@@ -4,18 +4,31 @@ const costs = document.querySelectorAll('.cost');
 const inputs = document.querySelectorAll('input');
 const outputs = document.querySelectorAll('output');
 const getmoney = document.querySelector('#moneyclick');
+const button1owned = document.querySelector('.getbutton1');
+const button2owned = document.querySelector('.getbutton2');
+const button3owned = document.querySelector('.getbutton3');
+const button4owned = document.querySelector('.getbutton4');
+const button5owned = document.querySelector('.getbutton5');
+const button6owned = document.querySelector('.getbutton6');
 
 getmoney.addEventListener('click', updateBudget);
+button1owned.addEventListener('click', updateButtonOne);
+button2owned.addEventListener('click', updateButtonTwo);
+button3owned.addEventListener('click', updateButtonThree);
+button4owned.addEventListener('click', updateButtonFour);
+button5owned.addEventListener('click', updateButtonFive);
+button6owned.addEventListener('click', updateButtonSix);
 
 // These are all currently placeholder values
 // statData: year, budget, population, co2, approval, total required energy
-let statData = [2009, 0, 20000000, 320, 95, 20000000 * 11];
+let statData = [2009, 0, 30000, 320, 95, 30000];
 let costData = new Array(6);
-let powerData = [29, 44, 10, 2, 5, 10]; // TEMPORARY VALUES 
+let powerData = [44.50, 24.10, 19.40, 0.37, 0.03, 2.30];
+let plantData = [0,0,0,0,0,0];
 
 let seconds = 0;
 let el = document.getElementById('seconds-counter');
-let cancel = setInterval(incrementSeconds, 5000);
+let cancel = setInterval(incrementSeconds, 10000);
 
 let peopleIncrease = 1;
 let reincrease = 1;
@@ -26,34 +39,23 @@ inputs.forEach(input => {
 });
 
 function updateAllStats() {
-    nextYear.firstElementChild.textContent = statData[0] + 1;
     reincrease += 1;
     peopleIncrease += reincrease;
     statData[2] += peopleIncrease;
     statData[5] = statData[2] * 0.893;
     statData[5] = statData[5].toFixed(2);
 
-    i = 0;
-    stats.forEach(stat => {
-        console.log(stat);
-        if (i == 0) {
-            stat.lastElementChild.textContent = statData[i++];
-        }
-        else {
-            stat.lastElementChild.textContent = statData[i++].toLocaleString("en-US"); // sebhastian.com/javascript-format-number-commas
-        }
-    });
+    updateBudget();
 
     i = 0;
     powers.forEach(power => {
-        power.textContent = Math.round(powerData[i++] * 1 / 100 * statData[5]).toLocaleString("en-US");
+        power.textContent = Math.round(powerData[i++] * (1 / 100) * statData[5]).toLocaleString("en-US");
     });
 
     i = 0;
     costs.forEach(cost => {
         cost.firstElementChild.textContent = costData[i++];
     });  
-
 
     i = 0;
     inputs.forEach(input => {
@@ -64,6 +66,7 @@ function updateAllStats() {
     outputs.forEach(output => {
         output.textContent = powerData[i++];
     });
+
 }
 
 
@@ -100,11 +103,49 @@ function updateBudget() {
     
     i = 0;
     stats.forEach(stat => {
-        stat.firstElementChild.textContent = statData[i++];
+        if (i == 0) {
+            stat.lastElementChild.textContent = statData[i++];
+        }
+        else if (i == 5) {
+             stat.lastElementChild.textContent = Math.round(statData[i++]).toLocaleString("en-US");
+        } else {
+             stat.lastElementChild.textContent = statData[i++].toLocaleString("en-US"); // sebhastian.com/javascript-format-number-commas
+
+        }
     });
 
-    getmoney.firstElementChild.textContent = (statData[2] * (statData[4] / 100)).toLocaleString("en-US");
-    getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent);
+    getmoney.firstElementChild.textContent = (statData[2] * (statData[4] / 100));
+    getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent).toLocaleString("en-US");
+}
+
+function updateButtonOne() {
+    plantData[0]++;
+    button1owned.firstElementChild.textContent = plantData[0];
+}
+
+function updateButtonTwo() {
+    plantData[1]++;
+    button2owned.firstElementChild.textContent = plantData[1];
+}
+
+function updateButtonThree() {
+    plantData[2]++;
+    button3owned.firstElementChild.textContent = plantData[2];
+}
+
+function updateButtonFour() {
+    plantData[3]++;
+    button4owned.firstElementChild.textContent = plantData[3];
+}
+
+function updateButtonFive() {
+    plantData[4]++;
+    button5owned.firstElementChild.textContent = plantData[4];
+}
+
+function updateButtonSix() {
+    plantData[5]++;
+    button6owned.firstElementChild.textContent = plantData[5];
 }
 
 function incrementSeconds() {
@@ -142,6 +183,12 @@ function incrementSeconds() {
     updateAllStats();
 }
 
+button1owned.firstElementChild.textContent = plantData[0];
+button2owned.firstElementChild.textContent = plantData[1];
+button3owned.firstElementChild.textContent = plantData[2];
+button4owned.firstElementChild.textContent = plantData[3];
+button5owned.firstElementChild.textContent = plantData[4];
+button6owned.firstElementChild.textContent = plantData[5];
 incrementSeconds();
 updateBudget();
 updateAllStats();
