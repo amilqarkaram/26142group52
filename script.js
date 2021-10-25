@@ -23,8 +23,7 @@ button6owned.addEventListener('click', updateButtonSix);
 // statData: year, budget, population, co2, approval, total required energy
 let statData = [2009, 0, 30000, 320, 95, 30000];
 let costData = new Array(6);
-let powerData = [44.50, 24.10, 19.40, 0.37, 0.03, 2.30];
-let plantData = [0,0,0,0,0,0];
+let powerData = [29, 44, 10, 2, 5, 10]; // TEMPORARY VALUES
 
 let seconds = 0;
 let el = document.getElementById('seconds-counter');
@@ -49,13 +48,13 @@ function updateAllStats() {
 
     i = 0;
     powers.forEach(power => {
-        power.textContent = Math.round(powerData[i++] * (1 / 100) * statData[5]).toLocaleString("en-US");
+        power.textContent = powerCalc(powerData[i++],statData[5]).toLocaleString("en-US");
     });
 
     i = 0;
     costs.forEach(cost => {
         cost.firstElementChild.textContent = costData[i++];
-    });  
+    });
 
     i = 0;
     inputs.forEach(input => {
@@ -98,9 +97,9 @@ function updateCostData() {
 
 
 function updateBudget() {
-    statData[1] = statData[1] + statData[2] * (statData[4]/100);
+    statData[1] = statData[1] + moneyCalc(statData[2] , (statData[4]/100));
     statData[1] = Math.trunc(statData[1]);
-    
+
     i = 0;
     stats.forEach(stat => {
         if (i == 0) {
@@ -114,38 +113,8 @@ function updateBudget() {
         }
     });
 
-    getmoney.firstElementChild.textContent = (statData[2] * (statData[4] / 100));
-    getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent).toLocaleString("en-US");
-}
-
-function updateButtonOne() {
-    plantData[0]++;
-    button1owned.firstElementChild.textContent = plantData[0];
-}
-
-function updateButtonTwo() {
-    plantData[1]++;
-    button2owned.firstElementChild.textContent = plantData[1];
-}
-
-function updateButtonThree() {
-    plantData[2]++;
-    button3owned.firstElementChild.textContent = plantData[2];
-}
-
-function updateButtonFour() {
-    plantData[3]++;
-    button4owned.firstElementChild.textContent = plantData[3];
-}
-
-function updateButtonFive() {
-    plantData[4]++;
-    button5owned.firstElementChild.textContent = plantData[4];
-}
-
-function updateButtonSix() {
-    plantData[5]++;
-    button6owned.firstElementChild.textContent = plantData[5];
+    getmoney.firstElementChild.textContent = moneyCalc(statData[2],statData[4]).toLocaleString("en-US");
+    getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent);
 }
 
 function incrementSeconds() {
