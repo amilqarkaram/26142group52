@@ -11,7 +11,7 @@ getmoney.addEventListener('click', updateBudget);
 // statData: year, budget, population, co2, approval, total required energy
 let statData = [2009, 0, 20000000, 320, 95, 20000000 * 11];
 let costData = new Array(6);
-let powerData = [29, 44, 10, 2, 5, 10]; // TEMPORARY VALUES 
+let powerData = [29, 44, 10, 2, 5, 10]; // TEMPORARY VALUES
 
 let seconds = 0;
 let el = document.getElementById('seconds-counter');
@@ -46,13 +46,13 @@ function updateAllStats() {
 
     i = 0;
     powers.forEach(power => {
-        power.textContent = Math.round(powerData[i++] * 1 / 100 * statData[5]).toLocaleString("en-US");
+        power.textContent = powerCalc(powerData[i++],statData[5]).toLocaleString("en-US");
     });
 
     i = 0;
     costs.forEach(cost => {
         cost.firstElementChild.textContent = costData[i++];
-    });  
+    });
 
 
     i = 0;
@@ -95,15 +95,15 @@ function updateCostData() {
 
 
 function updateBudget() {
-    statData[1] = statData[1] + statData[2] * (statData[4]/100);
+    statData[1] = statData[1] + moneyCalc(statData[2] , (statData[4]/100));
     statData[1] = Math.trunc(statData[1]);
-    
+
     i = 0;
     stats.forEach(stat => {
         stat.firstElementChild.textContent = statData[i++];
     });
 
-    getmoney.firstElementChild.textContent = (statData[2] * (statData[4] / 100)).toLocaleString("en-US");
+    getmoney.firstElementChild.textContent = moneyCalc(statData[2],statData[4]).toLocaleString("en-US");
     getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent);
 }
 
