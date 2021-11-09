@@ -6,10 +6,10 @@ function powerCalc(powerData,requiredPower){
 	return Math.round(powerData * (1/100) * requiredPower);
 }
 
-function exponentialIncrease(reincrease,peopleIncrease) {
-	reincrease++;
-	peopleIncrease += reincrease;
-	return peopleIncrease;
+function exponentialIncrease(obj) {
+	obj.reincrease++;
+	obj.peopleIncrease += obj.reincrease;
+	return obj.peopleIncrease;
 }
 
 function requiredPowerCalc(population) {

@@ -25,19 +25,35 @@ test('power calculated should equal powerData * requiredPower * 1/100, test for 
 })
 
 test('people should increase by an increasing amount, 0 & 0 -> 1', () => {
-    expect(exponentialIncrease(0,0)).toBe(1);
+    let obj = {
+        reincrease: 0,
+        peopleIncrease: 0
+    }
+    expect(exponentialIncrease(obj)).toBe(1);
 })
 
 test('people should increase by an increasing amount, 1 & 1 -> 3', () => {
-    expect(exponentialIncrease(1,1)).toBe(3);
+    let obj = {
+            reincrease: 1,
+            peopleIncrease: 1
+        }
+    expect(exponentialIncrease(obj)).toBe(3);
 })
 
 test('people should increase by an increasing amount, 5 & 5 -> 11', () => {
-    expect(exponentialIncrease(5,5)).toBe(11);
+    let obj = {
+            reincrease: 5,
+            peopleIncrease: 5
+        }
+    expect(exponentialIncrease(obj)).toBe(11);
 })
 
 test('people should increase by an increasing amount, 11 & 111 -> 123', () => {
-    expect(exponentialIncrease(11,111)).toBe(123);
+    let obj = {
+        reincrease: 11,
+        peopleIncrease: 111
+    }
+    expect(exponentialIncrease(obj)).toBe(123);
 })
 
 test('required power is directly proportional to population, test for success', () => {
