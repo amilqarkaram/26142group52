@@ -10,6 +10,12 @@ const button3owned = document.querySelector('.getbutton3');
 const button4owned = document.querySelector('.getbutton4');
 const button5owned = document.querySelector('.getbutton5');
 const button6owned = document.querySelector('.getbutton6');
+const deletebutton1 = document.querySelector('.deletebutton1');
+const deletebutton2 = document.querySelector('.deletebutton2');
+const deletebutton3 = document.querySelector('.deletebutton3');
+const deletebutton4 = document.querySelector('.deletebutton4');
+const deletebutton5 = document.querySelector('.deletebutton5');
+const deletebutton6 = document.querySelector('.deletebutton6');
 
 getmoney.addEventListener('click', updateBudget);
 button1owned.addEventListener('click', updateButtonOne);
@@ -19,16 +25,26 @@ button4owned.addEventListener('click', updateButtonFour);
 button5owned.addEventListener('click', updateButtonFive);
 button6owned.addEventListener('click', updateButtonSix);
 
+deletebutton1.addEventListener('click', destroyButtonOne);
+deletebutton2.addEventListener('click', destroyButtonTwo);
+deletebutton3.addEventListener('click', destroyButtonThree);
+deletebutton4.addEventListener('click', destroyButtonFour);
+deletebutton5.addEventListener('click', destroyButtonFive);
+deletebutton6.addEventListener('click', destroyButtonSix);
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
 // These are all currently placeholder values
 // statData: year, budget, population, co2, approval, total required energy
-let statData = [2009, 0, 300, 320, 90, 30000];
+let statData = [2009, 1000, 300, 320, 90, 0, 0];
 let costData = new Array(6);
 let powerData = [0,0,0,0,0,0];
 let plantData = [0,0,0,0,0,0];
 
 let seconds = 0;
 let el = document.getElementById('seconds-counter');
-let cancel = setInterval(incrementSeconds, 5000);
+let cancel = setInterval(incrementSeconds, 7500);
 
 let obj = {
     peopleIncrease: 1,
@@ -36,6 +52,7 @@ let obj = {
 }
 
 let sumEnergy = 0;
+let sumOfAllEnergy = 0;
 
 let i = 0;
 inputs.forEach(input => {
@@ -43,24 +60,10 @@ inputs.forEach(input => {
 });
 
 function updateAllStats() {
-    sumEnergy = 0;
-    i = 0;
-    costs.forEach(cost => {
-        sumEnergy += powerData[i++];
-    });
-    sumEnergy *= seconds;
-
-    statData[1] -= sumEnergy;
-    statData[2] += exponentialIncrease(obj);
-    statData[3] += plantData[0] + plantData[1];
-    statData[4] -= statData[3] / 320 - 1;
-    statData[5] = requiredPowerCalc(statData[2]);
-
-    updateBudget();
 
     i = 0;
     powers.forEach(power => {
-        powerData[i] = plantData[i] * costData[i++];
+        powerData[i] = plantData[i++] * 100;
     });
 
     i = 0;
@@ -72,6 +75,39 @@ function updateAllStats() {
     costs.forEach(cost => {
         cost.firstElementChild.textContent = costData[i++];
     });
+
+    sumEnergy = 0;
+    sumOfAllEnergy = 0;
+    i = 0;
+    costs.forEach(cost => {
+        sumEnergy += powerData[i];
+        sumOfAllEnergy += powerData[i++];
+    });
+    sumEnergy *= seconds;
+
+    statData[1] -= sumEnergy;
+    statData[2] += exponentialIncrease(obj);
+    statData[3] += plantData[0] + plantData[1];
+    statData[4] -= statData[3] / 320 - 1;
+    if (statData[5] != 0 && statData[6] > statData[5]) {
+        statData[4] -= statData[6] / statData[5];
+    } else if (statData[5] != 0 && statData[6] < statData[5]) {
+        statData[4] += statData[5] / statData[6];
+    } else {
+        statData[4] -= statData[6] / 300;
+    }
+    if (statData[4] >= 100) {
+        statData[4] = 100;
+    }
+    statData[5] = sumOfAllEnergy;
+    statData[6] = requiredPowerCalc(statData[2]);
+
+    updateBudget();
+
+    if (statData[4] <= 50 || statData[1] <= 0) {
+        modal.style.display = "block";
+    }
+
     /*
     i = 0;
     outputs.forEach(output => {
@@ -129,8 +165,37 @@ function updateBudget() {
     //getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent).toLocaleString("en-US");
 }
 
+function decrementBudget() {
+    statData[1] -= moneyCalc(statData[2] , statData[4]);
+
+    i = 0;
+    stats.forEach(stat => {
+        if (i == 0) {
+            stat.lastElementChild.textContent = statData[i++];
+        }
+        else if (i == 5) {
+             stat.lastElementChild.textContent = Math.round(statData[i++]).toLocaleString("en-US");
+        } else {
+             stat.lastElementChild.textContent = statData[i++].toLocaleString("en-US"); // sebhastian.com/javascript-format-number-commas
+
+        }
+    });
+
+    //getmoney.firstElementChild.textContent = (statData[2] * (statData[4] / 100));
+    getmoney.firstElementChild.textContent = moneyCalc(statData[2],statData[4]).toLocaleString("en-US");
+    //getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent).toLocaleString("en-US");
+}
+
 function updateButtonOne() {
     plantData[0]++;
+    button1owned.firstElementChild.textContent = plantData[0];
+}
+
+function destroyButtonOne() {
+    if (plantData[0] > 0) {
+        plantData[0]--;
+    }
+    decrementBudget();
     button1owned.firstElementChild.textContent = plantData[0];
 }
 
@@ -139,8 +204,24 @@ function updateButtonTwo() {
     button2owned.firstElementChild.textContent = plantData[1];
 }
 
+function destroyButtonTwo() {
+    if (plantData[1] > 0) {
+        plantData[1]--;
+    }
+    decrementBudget();
+    button2owned.firstElementChild.textContent = plantData[1];
+}
+
 function updateButtonThree() {
     plantData[2]++;
+    button3owned.firstElementChild.textContent = plantData[2];
+}
+
+function destroyButtonThree() {
+    if (plantData[2] > 0) {
+        plantData[2]--;
+    }
+    decrementBudget();
     button3owned.firstElementChild.textContent = plantData[2];
 }
 
@@ -149,13 +230,37 @@ function updateButtonFour() {
     button4owned.firstElementChild.textContent = plantData[3];
 }
 
+function destroyButtonFour() {
+    if (plantData[3] > 0) {
+        plantData[3]--;
+    }
+    decrementBudget();
+    button4owned.firstElementChild.textContent = plantData[3];
+}
+
 function updateButtonFive() {
     plantData[4]++;
     button5owned.firstElementChild.textContent = plantData[4];
 }
 
+function destroyButtonFive() {
+    if (plantData[4] > 0) {
+        plantData[4]--;
+    }
+    decrementBudget();
+    button5owned.firstElementChild.textContent = plantData[4];
+}
+
 function updateButtonSix() {
     plantData[5]++;
+    button6owned.firstElementChild.textContent = plantData[5];
+}
+
+function destroyButtonSix() {
+    if (plantData[5] > 0) {
+        plantData[5]--;
+    }
+    decrementBudget();
     button6owned.firstElementChild.textContent = plantData[5];
 }
 
