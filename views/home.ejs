@@ -3,48 +3,18 @@
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 							   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="/../public/style.css" />
+		<link rel="stylesheet" href="/style-home.css" />
+		<link rel="icon" href="/Images/favicon.ico" type="image/x-icon"/>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- <meta name="viewport" content="width=<device-width>, initial-scale=1.0"/> -->
-		<script src="script.js" defer></script>
-		<script src="helper.js"></script>
 		<title>Save the U.S. Clicker</title>
 	</head>
-	<div id="login">
-		<form action="/auth" method="post">
-			<div>
-
-				<div>
-
-				  <input type="radio" id="register" name="authorization" value="register" required>
-				  <label for="register">Register</label>
-
-				  <input type="radio" id="login" name="authorization" value="login">
-				  <label for="login">Login</label>
-
-				</div>
-
-				<label for="username"><b>Username</b></label>
-				<input type="text" placeholder="Enter Username" name="username" required>
-
-				<label for="password"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" name="password" required>
-				<p><%=passwordStatus%><p>
-
-				<button class="btn btn-primary" type="submit">Login</button>
-			</div>
-		</form>
-
-
-	</div>
 	<div id="home-content">
 		<h1>Save the World Clicker!</h1>
 		<div id="description">
 			Welcome to Save the U.S. Clicker. You’ve recently been appointed head of the US Department of Energy and now need to figure out a way to provide the population with energy while minimizing harm to the environment.
 		</div>
-
-		<button id="play"><a href="./game.ejs">Play!</a></button>
 
 
 		<h2>How to Play</h2>
@@ -65,5 +35,35 @@
 		</div>
 
 	</div>
+	<div class="login-register text-center">
+		<form action="/" class="form-signin" method="post">
+			<div>
+				<h1 class="h3 mb-3 font-weight-normal">Please sign/register here</h1>
+				<div>
+
+					<input type="radio" id="register" name="authorization" value="register" required>
+					<label for="register">Register</label>
+
+					<input type="radio" id="login" name="authorization" value="login">
+					<label for="login">Login</label>
+
+				</div>
+				<div>
+				<label for="username" class="sr-only"><b>Username</b></label>
+					<input type="text" id="username" class="form-control" placeholder="Enter Username" name="username" autocomplete="off" required>
+
+					<label for="password" class="sr-only"><b>Password</b></label>
+					<input type="password" id="password" class="form-control" placeholder="Enter Password" name="password" autocomplete="off" required>
+					<p class="errorMessage"><%=errorMessage%><p>
+				</div>
+
+				<button class="btn btn-lg btn-primary btn-block" type="button">Login/Register</button>
+			</div>
+		</form>
+
+
+	</div>
 	</body>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script src="/ajax.js"></script>
 </html>
