@@ -4,17 +4,22 @@
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 							   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="/style-game.css" />
+		<link rel="icon" href="/Images/favicon.ico" type="image/x-icon"/>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-			<script src="script.js" defer></script>
-			<script src="helper.js"></script>
+			<script src="/script.js" defer></script>
+			<script src="/helper.js"></script>
 			<title>Save the U.S. Clicker</title>
 	</head>
 
 	<body id="body">
 		<h1>Save the U.S. Clicker</h1>
+		<div class="profile-name">
+			<img class= "profile-image" src="/Images/avatar-placeholder.png"></img>
+			<h5><%= name %></h5>
+		</div>
 		<h2>Stats</h2>
 
 		<div class="stats">
@@ -34,7 +39,7 @@
 			<div class="modal-content">
 				<h1>YOU LOSE</h1>
 				<p>Your citizens have grown unhappy and called for your removal from office</p>
-				<img src="Images/Burning-City.jpg">
+				<img src="/Images/Burning-City.jpg">
 			</div>
 
 		</div>
@@ -47,7 +52,7 @@
 			<div class="game">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<img src="Images/Florida.png" class="map center">
+						<img src="/Images/Florida.png" class="map center">
 					</div>
 					<div class="col-sm panels">
 						<div class="container">
@@ -55,7 +60,7 @@
 							</div>
 							<div class="row">
 								<div class="col-lg-4 panel" id="coal">
-									<img src="Images/coal.png">
+									<img src="/Images/coal.png">
 									<div class="energy">
 										Coal Plant
 									</div>
@@ -79,7 +84,7 @@
 									</div>
 								</div>
 								<div class="col-lg-4 panel" id="gas">
-									<img src="Images/natural-gas.png">
+									<img src="/Images/natural-gas.png">
 									<div class="energy">
 										Gas
 									</div>
@@ -103,7 +108,7 @@
 									</div>
 								</div>
 								<div class="col-lg-4 panel" id="nuclear">
-									<img src="Images/nuclear.png">
+									<img src="/Images/nuclear.png">
 									<div class="energy">
 										Nuclear Power Plant
 									</div>
@@ -126,7 +131,7 @@
 							</div>
 							<div class="row">
 								<div class="col-lg-4 panel" id="geothermal">
-									<img src="Images/geothermal.png">
+									<img src="/Images/geothermal.png">
 									<div class="energy">
 										Geothermal
 									</div>
@@ -149,7 +154,7 @@
 									</div>
 								</div>
 								<div class="col-lg-4 panel" id="solar">
-									<img src="Images/solar.png">
+									<img src="/Images/solar.png">
 									<div class="energy">
 										Solar
 									</div>
@@ -173,7 +178,7 @@
 								</div>
 
 								<div class="col-lg-4 panel" id="wind">
-									<img src="Images/wind.png">
+									<img src="/Images/wind.png">
 									<div class="energy">
 										Wind Turbines
 									</div>

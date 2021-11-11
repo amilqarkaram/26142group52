@@ -20,6 +20,14 @@ h2 {
 	margin-bottom: 8px;
 }
 
+.profile-name{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+.profile-image{
+	width: 50px;
+}
 .stats {
 	display: flex;
 	gap: 16px;
@@ -28,7 +36,7 @@ h2 {
 }
 
 
-.stat, 
+.stat,
 .event {
 	color: black;
 	border: black solid 2px;
@@ -131,7 +139,7 @@ button:active {
 	max-height: 192px;
 }
 
-#description, 
+#description,
 #instructions,
 #features {
 	display: flex;
