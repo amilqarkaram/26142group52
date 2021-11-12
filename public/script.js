@@ -16,6 +16,7 @@ const deletebutton3 = document.querySelector('.deletebutton3');
 const deletebutton4 = document.querySelector('.deletebutton4');
 const deletebutton5 = document.querySelector('.deletebutton5');
 const deletebutton6 = document.querySelector('.deletebutton6');
+const events = document.querySelector('#events');
 
 getmoney.addEventListener('click', updateBudget);
 button1owned.addEventListener('click', updateButtonOne);
@@ -114,6 +115,8 @@ function updateAllStats() {
 		output.textContent = powerData[i++];
 	});
 	*/
+
+	
 }
 
 
@@ -166,7 +169,9 @@ function updateBudget() {
 }
 
 function decrementBudget() {
+	let prevBudget = statData[1];
 	statData[1] -= moneyCalc(statData[2] , statData[4]);
+	addEvent("Budget has gone down", `$${prevBudget - statData[1]} has been lost!`);
 
 	i = 0;
 	stats.forEach(stat => {
@@ -184,6 +189,7 @@ function decrementBudget() {
 	//getmoney.firstElementChild.textContent = (statData[2] * (statData[4] / 100));
 	getmoney.firstElementChild.textContent = moneyCalc(statData[2],statData[4]).toLocaleString("en-US");
 	//getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent).toLocaleString("en-US");
+	
 }
 
 function updateButtonOne() {
@@ -262,6 +268,7 @@ function destroyButtonSix() {
 	}
 	decrementBudget();
 	button6owned.firstElementChild.textContent = plantData[5];
+	addEvent("Destroyed a plant", "Less wind power");
 }
 
 function incrementSeconds() {
@@ -271,6 +278,7 @@ function incrementSeconds() {
 		month = "January";
 		statData[0]++;
 		updateCostData();
+		addEvent("Happy New Year!", "The costs of each of the power plants have changed, make sure to accuont for this when building new plants.");
 	} else if (seconds % 12 == 2) {
 		month = "February";
 	} else if (seconds % 12 == 3) {
@@ -299,12 +307,36 @@ function incrementSeconds() {
 	updateAllStats();
 }
 
+function addEvent(name, description) {
+	console.log(events);
+
+	// if too many events;
+
+	const event = document.createElement('div');
+	event.classList.add('event');
+
+	const eventName = document.createElement('div');
+	eventName.classList.add('eventName');
+	eventName.textContent = name;
+
+	const eventDescription = document.createElement('div');
+	eventDescription.classList.add('eventName');
+	eventDescription.textContent = description;
+
+	event.appendChild(eventName);
+	event.appendChild(eventDescription);
+	events.appendChild(event);
+
+
+}
+
 button1owned.firstElementChild.textContent = plantData[0];
 button2owned.firstElementChild.textContent = plantData[1];
 button3owned.firstElementChild.textContent = plantData[2];
 button4owned.firstElementChild.textContent = plantData[3];
 button5owned.firstElementChild.textContent = plantData[4];
 button6owned.firstElementChild.textContent = plantData[5];
+
 incrementSeconds();
 updateBudget();
 updateAllStats();
