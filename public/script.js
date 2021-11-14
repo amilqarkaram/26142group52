@@ -116,6 +116,8 @@ function updateAllStats() {
 	});
 	*/
 
+	naturalDisaster();
+
 	
 }
 
@@ -203,6 +205,7 @@ function destroyButtonOne() {
 	}
 	decrementBudget();
 	button1owned.firstElementChild.textContent = plantData[0];
+	addEvent("Destroyed a plant", "Less coal power");
 }
 
 function updateButtonTwo() {
@@ -216,6 +219,7 @@ function destroyButtonTwo() {
 	}
 	decrementBudget();
 	button2owned.firstElementChild.textContent = plantData[1];
+	addEvent("Destroyed a plant", "Less gas power");
 }
 
 function updateButtonThree() {
@@ -229,6 +233,7 @@ function destroyButtonThree() {
 	}
 	decrementBudget();
 	button3owned.firstElementChild.textContent = plantData[2];
+	addEvent("Destroyed a plant", "Less nuclear power");
 }
 
 function updateButtonFour() {
@@ -242,6 +247,7 @@ function destroyButtonFour() {
 	}
 	decrementBudget();
 	button4owned.firstElementChild.textContent = plantData[3];
+	addEvent("Destroyed a plant", "Less geothermal power");
 }
 
 function updateButtonFive() {
@@ -255,6 +261,7 @@ function destroyButtonFive() {
 	}
 	decrementBudget();
 	button5owned.firstElementChild.textContent = plantData[4];
+	addEvent("Destroyed a plant", "Less solar power");
 }
 
 function updateButtonSix() {
@@ -311,6 +318,9 @@ function addEvent(name, description) {
 	console.log(events);
 
 	// if too many events;
+	while (events.childElementCount > 5) {
+		events.removeChild(events.firstChild);
+	}
 
 	const event = document.createElement('div');
 	event.classList.add('event');
@@ -327,7 +337,21 @@ function addEvent(name, description) {
 	event.appendChild(eventDescription);
 	events.appendChild(event);
 
+	
+}
 
+function naturalDisaster() {
+	let disasterRandom = Math.random() * 100;
+	let disasterChance = statData[3] / 100;
+
+	if (disasterRandom < disasterChance) { 
+		let random = Math.floor(Math.random() * 5);
+		addEvent("NATURAL DISASTER HAS STRUCK", "Approval, budget, and population have all gone down");	
+		statData[1]*=.75;
+		statData[2]*=.99;
+		statData[4]*=.9;
+		
+	}
 }
 
 button1owned.firstElementChild.textContent = plantData[0];
