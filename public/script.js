@@ -326,11 +326,11 @@ function addEvent(name, description) {
 	event.classList.add('event');
 
 	const eventName = document.createElement('div');
-	eventName.classList.add('eventName');
+	eventName.classList.add('event-name');
 	eventName.textContent = name;
 
 	const eventDescription = document.createElement('div');
-	eventDescription.classList.add('eventName');
+	eventDescription.classList.add('event-description');
 	eventDescription.textContent = description;
 
 	event.appendChild(eventName);
@@ -346,11 +346,15 @@ function naturalDisaster() {
 
 	if (disasterRandom < disasterChance) { 
 		let random = Math.floor(Math.random() * 5);
-		addEvent("NATURAL DISASTER HAS STRUCK", "Approval, budget, and population have all gone down.");	
-		statData[1]*=.75;
-		statData[2]*=.99;
-		statData[4]*=.9;
-		
+
+		let prevBudget  = statData[1];
+		statData[1] = Math.floor(statData[1] * .75);
+		let prevPopulation = statData[2];
+		statData[2] = Math.floor(statData[2] * .99);
+		let prevApproval = statData[4];
+		statData[4]*=.95;
+			
+		addEvent("NATURAL DISASTER HAS STRUCK", `Approval has fallen from ${prevApproval} to ${statData[4]}.  Budget has fallen from ${prevBudget} to ${statData[2]}. Population has fallen from ${prevPopulation} to ${statData[1]}.`);	
 	}
 }
 

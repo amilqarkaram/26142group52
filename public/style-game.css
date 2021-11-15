@@ -194,6 +194,11 @@ button:active {
 .events {
 	display: flex;
 	flex-wrap: nowrap;
+	gap: 8px;
+}
+
+.event-name {
+	font-size: 20px;
 }
 
 /* The Modal (background) */
