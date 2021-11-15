@@ -285,7 +285,7 @@ function incrementSeconds() {
 		month = "January";
 		statData[0]++;
 		updateCostData();
-		addEvent("Happy New Year!", "The costs of each of the power plants have changed, make sure to accuont for this when building new plants.");
+		addEvent("Happy New Year!", "The costs of each of the power plants have changed, make sure to account for this when building new plants.");
 	} else if (seconds % 12 == 2) {
 		month = "February";
 	} else if (seconds % 12 == 3) {
@@ -346,7 +346,7 @@ function naturalDisaster() {
 
 	if (disasterRandom < disasterChance) { 
 		let random = Math.floor(Math.random() * 5);
-		addEvent("NATURAL DISASTER HAS STRUCK", "Approval, budget, and population have all gone down");	
+		addEvent("NATURAL DISASTER HAS STRUCK", "Approval, budget, and population have all gone down.");	
 		statData[1]*=.75;
 		statData[2]*=.99;
 		statData[4]*=.9;
