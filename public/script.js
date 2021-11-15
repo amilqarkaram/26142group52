@@ -319,7 +319,7 @@ function addEvent(name, description) {
 
 	// if too many events;
 	while (events.childElementCount > 5) {
-		events.removeChild(events.firstChild);
+		events.removeChild(events.lastChild);
 	}
 
 	const event = document.createElement('div');
@@ -335,7 +335,7 @@ function addEvent(name, description) {
 
 	event.appendChild(eventName);
 	event.appendChild(eventDescription);
-	events.appendChild(event);
+	events.insertBefore(event, events.firstChild);
 
 	
 }
