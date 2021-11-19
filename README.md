@@ -17,3 +17,5 @@ Member 4: Jonathan Joseph<br/>
   - this is used to access the cloud databse in any way
 2. jwt encryption secret: "save the world secret"<br/>
   - this is secret string encrypts user information stored in a cookie that lives in the browser
+# Login Instructions
+1. Once faced with the hompage, register as a new user in order to access the game
