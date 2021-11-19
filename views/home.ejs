@@ -3,67 +3,67 @@
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 							   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="/style-home.css" />
+		<link rel="stylesheet" href="/style-game.css" />
 		<link rel="icon" href="/Images/favicon.ico" type="image/x-icon"/>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- <meta name="viewport" content="width=<device-width>, initial-scale=1.0"/> -->
 		<title>Save the U.S. Clicker</title>
-	</head>
-	<div id="home-content">
-		<h1>Save the World Clicker!</h1>
-		<div id="description">
-			Welcome to Save the U.S. Clicker. You’ve recently been appointed head of the US Department of Energy and now need to figure out a way to provide the population with energy while minimizing harm to the environment.
-		</div>
+	</head>	
+	<body>
 
-
-		<h2>How to Play</h2>
-		<div id="instructions">
-			The top of the page displays your stats such as population, CO2 level, and approval rating. You’ll campaign to raise money by clicking the large green button at the top of the page. It is important to make sure you don’t let the budget fall to 0!
-			There are 6 different types of energy plants, some of which cause CO2 emissions. Without going over budget, you must purchase plants to generate the required energy. Every ten seconds, a month passes in game. Every month you must cover the costs of running the plant, so make sure you’re clicking the green bar!
-
-		</div>
-
-
-		<h2>Game Features</h2>
-		<div id="features">
-			<div class="feature">Build power plants and adjust how much of each energy source each assigned state will be producing</div>
-			<div class="feature">Experience more and more natural disasters as the planet's CO2 level increases</div>
-			<div class="feature">Invest in the country's future by building more green power plants</div>
-			<div class="feature">Control different states each that have different costs for different energy sources</div>
-			<div class="feature">Experience revolt from your citizens as you mismanage your country</div>
-		</div>
-
-	</div>
-	<div class="login-register text-center">
-		<form action="/" class="form-signin" method="post">
-			<div>
-				<h1 class="h3 mb-3 font-weight-normal">Please sign/register here</h1>
+		<div id="login-register" class="login-register text-center">
+			<form action="/" class="form-signin" method="post">
 				<div>
+					<!-- <h1 class="h3 mb-3 font-weight-normal">Please register/login here</h1> -->
+					<div>
 
-					<input type="radio" id="register" name="authorization" value="register" required>
-					<label for="register">Register</label>
+						<input type="radio" id="register" name="authorization" value="register" required>
+						<label for="register">Register</label>
 
-					<input type="radio" id="login" name="authorization" value="login">
-					<label for="login">Login</label>
+						<input type="radio" id="login" name="authorization" value="login">
+						<label for="login">Login</label>
 
+					</div>
+					<div>
+						<label for="username" class="sr-only"><b>Username</b></label>
+						<input type="text" id="username" class="form-control" placeholder="Enter Username" name="username" autocomplete="off" required>
+
+						<label for="password" class="sr-only"><b>Password</b></label>
+						<input type="password" id="password" class="form-control" placeholder="Enter Password" name="password" autocomplete="off" required>
+						<p class="errorMessage"><%=errorMessage%><p>
+					</div>
+
+					<button type="button">Register/Login</button>
 				</div>
-				<div>
-				<label for="username" class="sr-only"><b>Username</b></label>
-					<input type="text" id="username" class="form-control" placeholder="Enter Username" name="username" autocomplete="off" required>
+			</form>
+		</div>
 
-					<label for="password" class="sr-only"><b>Password</b></label>
-					<input type="password" id="password" class="form-control" placeholder="Enter Password" name="password" autocomplete="off" required>
-					<p class="errorMessage"><%=errorMessage%><p>
-				</div>
-
-				<button class="btn btn-lg btn-primary btn-block" type="button">Login/Register</button>
+		<div id="home-content">
+			<h1>Save the World Clicker!</h1>
+			<div id="description">
+				Welcome to Save the U.S. Clicker. You’ve recently been appointed head of the US Department of Energy and now need to figure out a way to provide the population with energy while minimizing harm to the environment.
 			</div>
-		</form>
+
+			<h2>How to Play</h2>
+			<div id="instructions">
+				The top of the page displays your stats such as population, CO2 level, and approval rating. You’ll campaign to raise money by clicking the large green button at the top of the page. It is important to make sure you don’t let the budget fall to 0!
+				There are 6 different types of energy plants, some of which cause CO2 emissions. Without going over budget, you must purchase plants to generate the required energy. Every ten seconds, a month passes in game. Every month you must cover the costs of running the plant, so make sure you’re clicking the green bar!
+
+			</div>
 
 
-	</div>
+			<h2>Game Features</h2>
+			<div id="features">
+				<div class="feature"><p>Build power plants and adjust how much of each energy source each assigned state will be producing</p> <img src="/Images/buildpowerplants.png" /></div>
+				<div class="feature"><p>Experience more and more natural disasters as the planet's CO2 level increases</p><img src="/Images/naturaldisasters.png" /></div>
+				<div class="feature"><p>Invest in the country's future by building more green power plants</p><img src="/Images/greenpower.png" /></div>
+				<div class="feature"><p>Control different states each that have different costs for different energy sources</p><img src="/Images/controlstates.png" /></div>
+				<div class="feature"><p>Experience revolt from your citizens as you mismanage your country</p><img src="/Images/revolt.png" /></div>
+			</div>
+
+		</div>
 	</body>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-			<script src="/ajax.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/ajax.js"></script>
 </html>

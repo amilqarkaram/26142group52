@@ -16,6 +16,7 @@ const deletebutton3 = document.querySelector('.deletebutton3');
 const deletebutton4 = document.querySelector('.deletebutton4');
 const deletebutton5 = document.querySelector('.deletebutton5');
 const deletebutton6 = document.querySelector('.deletebutton6');
+const events = document.querySelector('#events');
 
 getmoney.addEventListener('click', updateBudget);
 button1owned.addEventListener('click', updateButtonOne);
@@ -114,6 +115,10 @@ function updateAllStats() {
 		output.textContent = powerData[i++];
 	});
 	*/
+
+	naturalDisaster();
+
+	
 }
 
 
@@ -166,7 +171,9 @@ function updateBudget() {
 }
 
 function decrementBudget() {
+	let prevBudget = statData[1];
 	statData[1] -= moneyCalc(statData[2] , statData[4]);
+	addEvent("Budget has gone down", `$${prevBudget - statData[1]} has been lost!`);
 
 	i = 0;
 	stats.forEach(stat => {
@@ -184,6 +191,7 @@ function decrementBudget() {
 	//getmoney.firstElementChild.textContent = (statData[2] * (statData[4] / 100));
 	getmoney.firstElementChild.textContent = moneyCalc(statData[2],statData[4]).toLocaleString("en-US");
 	//getmoney.firstElementChild.textContent = Math.trunc(getmoney.firstElementChild.textContent).toLocaleString("en-US");
+	
 }
 
 function updateButtonOne() {
@@ -197,6 +205,7 @@ function destroyButtonOne() {
 	}
 	decrementBudget();
 	button1owned.firstElementChild.textContent = plantData[0];
+	addEvent("Destroyed a plant", "Less coal power");
 }
 
 function updateButtonTwo() {
@@ -210,6 +219,7 @@ function destroyButtonTwo() {
 	}
 	decrementBudget();
 	button2owned.firstElementChild.textContent = plantData[1];
+	addEvent("Destroyed a plant", "Less gas power");
 }
 
 function updateButtonThree() {
@@ -223,6 +233,7 @@ function destroyButtonThree() {
 	}
 	decrementBudget();
 	button3owned.firstElementChild.textContent = plantData[2];
+	addEvent("Destroyed a plant", "Less nuclear power");
 }
 
 function updateButtonFour() {
@@ -236,6 +247,7 @@ function destroyButtonFour() {
 	}
 	decrementBudget();
 	button4owned.firstElementChild.textContent = plantData[3];
+	addEvent("Destroyed a plant", "Less geothermal power");
 }
 
 function updateButtonFive() {
@@ -249,6 +261,7 @@ function destroyButtonFive() {
 	}
 	decrementBudget();
 	button5owned.firstElementChild.textContent = plantData[4];
+	addEvent("Destroyed a plant", "Less solar power");
 }
 
 function updateButtonSix() {
@@ -262,6 +275,7 @@ function destroyButtonSix() {
 	}
 	decrementBudget();
 	button6owned.firstElementChild.textContent = plantData[5];
+	addEvent("Destroyed a plant", "Less wind power");
 }
 
 function incrementSeconds() {
@@ -271,6 +285,7 @@ function incrementSeconds() {
 		month = "January";
 		statData[0]++;
 		updateCostData();
+		addEvent("Happy New Year!", "The costs of each of the power plants have changed, make sure to account for this when building new plants.");
 	} else if (seconds % 12 == 2) {
 		month = "February";
 	} else if (seconds % 12 == 3) {
@@ -299,12 +314,57 @@ function incrementSeconds() {
 	updateAllStats();
 }
 
+function addEvent(name, description) {
+	console.log(events);
+
+	// if too many events;
+	while (events.childElementCount > 5) {
+		events.removeChild(events.lastChild);
+	}
+
+	const event = document.createElement('div');
+	event.classList.add('event');
+
+	const eventName = document.createElement('div');
+	eventName.classList.add('event-name');
+	eventName.textContent = name;
+
+	const eventDescription = document.createElement('div');
+	eventDescription.classList.add('event-description');
+	eventDescription.textContent = description;
+
+	event.appendChild(eventName);
+	event.appendChild(eventDescription);
+	events.insertBefore(event, events.firstChild);
+
+	
+}
+
+function naturalDisaster() {
+	let disasterRandom = Math.random() * 100;
+	let disasterChance = statData[3] / 100;
+
+	if (disasterRandom < disasterChance) { 
+		let random = Math.floor(Math.random() * 5);
+
+		let prevBudget  = statData[1];
+		statData[1] = Math.floor(statData[1] * .75);
+		let prevPopulation = statData[2];
+		statData[2] = Math.floor(statData[2] * .99);
+		let prevApproval = statData[4];
+		statData[4]*=.95;
+			
+		addEvent("NATURAL DISASTER HAS STRUCK", `Approval has fallen from ${prevApproval} to ${statData[4]}.  Budget has fallen from ${prevBudget} to ${statData[2]}. Population has fallen from ${prevPopulation} to ${statData[1]}.`);	
+	}
+}
+
 button1owned.firstElementChild.textContent = plantData[0];
 button2owned.firstElementChild.textContent = plantData[1];
 button3owned.firstElementChild.textContent = plantData[2];
 button4owned.firstElementChild.textContent = plantData[3];
 button5owned.firstElementChild.textContent = plantData[4];
 button6owned.firstElementChild.textContent = plantData[5];
+
 incrementSeconds();
 updateBudget();
 updateAllStats();

@@ -139,6 +139,17 @@ button:active {
 	max-height: 192px;
 }
 
+#home-content {
+	font-family: monospace;
+	display: flex;
+	flex-direction: column;
+	border: 4px solid #000;
+	border-radius: 32px;
+	background-color: lightgoldenrodyellow;
+	font-size: 20px;
+}
+
+
 #description,
 #instructions,
 #features {
@@ -150,44 +161,29 @@ button:active {
 }
 
 .feature {
+	min-height: 96px;
 	border: 2px solid #000;
-	background-color: #8fbbbc;
-	border-radius: 16px;
-	padding: 8px
-}
-
-#login {
-	margin-left: auto;
-	border:  1px solid black;
+	background-color: salmon;
 	border-radius: 16px;
 	padding: 8px;
-	background-color: lightgoldenrodyellow;
-}
-
-#play {
-	background-color: salmon;
-	font-weight: 900;
-	font-size: 72px;
-	border-radius: 16px;
-	margin-top: 32px;
-	margin-bottom: 32px;
-	padding-left: 32px;
-	padding-right: 32px;
-}
-
-#play a {
-	color: black;
-	text-decoration: none;
-}
-
-#home-content {
-	font-family: monospace;
+	flex: auto;
 	display: flex;
 	flex-direction: column;
-	border: 4px solid #000;
-	border-radius: 32px;
+	align-items: center;
+}
+
+#features img {
+	width: 196px;
+	height: auto;
+}
+
+#login-register {
+	margin-left: auto;
 	background-color: lightgoldenrodyellow;
-	font-size: 24px;
+	border:  2px solid black;
+	border-radius: 16px;
+	padding: 8px;
+	font-family: monospace;
 }
 
 .event {
@@ -198,6 +194,11 @@ button:active {
 .events {
 	display: flex;
 	flex-wrap: nowrap;
+	gap: 8px;
+}
+
+.event-name {
+	font-size: 20px;
 }
 
 /* The Modal (background) */
